@@ -6,10 +6,9 @@ let filmes = [
   {id: 2, titulo: 'Clube da Luta', ano: 1999, diretor: 'Fincher'}
 ];
 
-// GET todos
 router.get('/', (req, res) => res.json(filmes));
 
-// GET por ID
+
 router.get('/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const filme = filmes.find(f => f.id === id);
@@ -17,7 +16,6 @@ router.get('/:id', (req, res) => {
   res.json(filme);
 });
 
-// POST novo
 router.post('/', (req, res) => {
   const {titulo, ano, diretor} = req.body;
   if (!titulo || !ano || !diretor) {
